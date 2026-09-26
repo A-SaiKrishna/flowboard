@@ -24,6 +24,10 @@ jobs:
         run: pnpm build
       - name: test
         run: pnpm test
+      - name: Install Cypress binary
+        run: pnpm exec cypress install
+      - name: cypress
+        run: pnpm cy:ci
       - name: docker setup
         uses: docker/setup-buildx-action@v3
       - name: docker build

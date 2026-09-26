@@ -8,11 +8,13 @@ const colors: Record<string, string> = {
   end: '#dc2626',
 }
 
-export function FlowNodeView({ data, selected }: NodeProps<FlowNode>) {
+export function FlowNodeView({ id, data, selected }: NodeProps<FlowNode>) {
   const accent = colors[data.nodeType] ?? '#64748b'
 
   return (
     <div
+      data-cy={`flow-node-${data.nodeType}`}
+      data-node-id={id}
       style={{
         minWidth: 140,
         borderRadius: 10,

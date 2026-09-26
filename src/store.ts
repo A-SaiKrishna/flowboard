@@ -9,6 +9,7 @@ import {
   applyEdgeChanges,
   applyNodeChanges,
 } from "@xyflow/react";
+import { createNodeId } from "./nodeId";
 
 export type FlowNodeData = {
   label: string;
@@ -125,7 +126,7 @@ export const useFlowStore = create<FlowState>((set, get) => ({
 
   addNode: (nodeType) => {
     get().pushHistory();
-    const id = `${nodeType}-${Date.now()}`;
+    const id = createNodeId(nodeType);
     const node: FlowNode = {
       id,
       type: "flow",
